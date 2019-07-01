@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Sukhumvit Set';
+    src: url('../font/SukhumvitSet-Medium.eot');
+    src: url('../font/SukhumvitSet-Medium.eot?#iefix') format('embedded-opentype'),
+      url('../font/SukhumvitSet-Medium.woff') format('woff'),
+      url('../font/SukhumvitSet-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sukhumvit Set';
+    src: url('../font/SukhumvitSet-Bold.eot');
+    src: url('../font/SukhumvitSet-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../font/SukhumvitSet-Bold.woff') format('woff'),
+      url('../font/SukhumvitSet-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sukhumvit Set';
+    src: url('../font/SukhumvitSet-Thin.eot');
+    src: url('../font/SukhumvitSet-Thin.eot?#iefix') format('embedded-opentype'),
+      url('../font/SukhumvitSet-Thin.woff') format('woff'),
+      url('../font/SukhumvitSet-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}

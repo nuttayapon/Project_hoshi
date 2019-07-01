@@ -1,0 +1,75 @@
+<!---------------PHP header--------------->
+<?php
+	require_once('header.php');
+?>
+<!---------------PHP header--------------->
+
+<FONT FACE="Athiti">
+		<div id="content">
+		<table border="0" align="center" width="90%">
+		<tr>
+			<td>
+				<br>
+				<table width="800" border="0" align="center" class="table table-hover">
+			<tr >
+			  <td height="40" colspan="8" align="center" bgcolor="#cc6633"><strong><b> <font size="5" color="#ffffff">บันทึกการขาย</font></span></strong></td>
+			</tr>
+				  <tr align="center" >
+					<th  bgcolor="#ffdd97"><center> ID การสั่งซื้อ  </center></th>
+					<th  bgcolor="#ffdd97"><center> ชื่อ - นามสกุล </center></th>
+					<th  bgcolor="#ffdd97"><center> ที่อยู่ </center></th>
+					<th  bgcolor="#ffdd97"><center> สถานะ </center></th>
+					<th  bgcolor="#ffdd97"><center> เวลาสั่งซื้อ </center></th>
+					<th colspan="3" bgcolor="#ffdd97"><center> การดำเนินการ </center></th>
+				  </tr>
+				<?php
+				 include("../dbconfig.php");
+					  $sql = "select * from tbl_order";  //เรียกข้อมูลมาแสดงทั้งหมด
+					  $result = mysqli_query($con, $sql);
+					  while($row = mysqli_fetch_array($result))
+					  {
+				?>
+				<tr>
+					 <td><?php echo $row['order_id'] ?></td>
+					<td><?php echo $row['fullname'] ?></td>
+					<td><?php echo $row['address'] ?></td>
+					<td><?php switch($row['order_status'])
+
+      {
+        case '':
+          $value='<span class="text-danger"> รับออร์เดอร์แล้ว </span>';
+          break;
+          case '2' :
+          $value='<span class="text-warning"> จัดเตรีมสินค้า </span>';
+          break;
+          case '3' :
+          $value='<span class="text-success"> จัดส่งสินค้าแล้ว </span>';
+          break;
+        }
+        echo $value; ?></td>
+
+					<td><?php echo $row['order_date'] ?></td>
+
+					<td  align='center' width='20'>
+					<a href="o_editorder.php?order_id=<?php echo $row[0];?>">
+					<button type="button" class="btn btn-warning btn-sm"><FONT FACE="Athiti" size="4">แก้ไข</FONT></button></a></td>
+
+					<td width='20' align='center'><a href="o_deleteorder.php?order_id=<?php echo $row[0];?>">
+					<button type="button" class="btn btn-danger btn-sm"><FONT FACE="Athiti" size="4">ลบ</FONT></button></a></td>
+					</tr>
+				    <?php  } ?>
+				</table>
+				<br>
+				<div align="right">
+					<a href="o_print.php"><button  type="button"  class="btn btn-success" btn-sm"> <FONT FACE="Athiti" size="4"> พิมพ์บันทึกการขาย </FONT></button></a><br><br>
+				</div>
+			</td>
+		</tr>		
+		</table>
+		</div>
+</FONT>
+<!---------------PHP footer--------------->
+<?php
+	require_once('footer.php');
+?>
+<!---------------PHP footer--------------->
